@@ -15,6 +15,7 @@ public class TestScript01 : MonoBehaviour
     // [SerializaField] 사용하면 Inspector 창에서 수치변경 가능
     // 따라서 개발자에게는 inspector 창에서 조절 가능하게끔 해달라고 해야함
     // public으로 해도 가능하지만 그건 적절한 개발방식이 아님
+
     [SerializeField] int myGold; 
     [SerializeField] int myPotion; 
 
