@@ -54,9 +54,7 @@ public class TestScript02 : MonoBehaviour
         {
             Debug.Log("C등급");
         }
-      
-
-
+     
             Debug.Log($"S등급 : {S_Tier} / A등급 : {A_Tier} / B등급 : {B_Tier} / C등급 : {C_Tier}");
     }
 }
