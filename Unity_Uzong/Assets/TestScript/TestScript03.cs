@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TestScript03 : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class TestScript03 : MonoBehaviour
                 break;
 
             case <= 20 :
-                S_Tier++;
+                A_Tier++;
                 Debug.Log($"A 등급 : {A_Tier}");
                 break;
 
@@ -104,6 +105,7 @@ public class TestScript03 : MonoBehaviour
                 Debug.Log($"C 등급 : {C_Tier}");
                 break;
         }
+        Debug.Log($"S등급 : {S_Tier} / A등급 : {A_Tier} / B등급 : {B_Tier} / C등급 : {C_Tier}");
     }
 
 }
