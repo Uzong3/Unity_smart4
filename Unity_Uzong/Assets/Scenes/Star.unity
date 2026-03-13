@@ -898,8 +898,8 @@ MonoBehaviour:
   btn_Phase3: {fileID: 2042064855}
   btn_Phase4: {fileID: 635700537}
   btn_Phase5: {fileID: 147466234}
-  txt_Result: {fileID: 0}
-  input_Count: {fileID: 0}
+  txt_Result: {fileID: 440749675}
+  input_Count: {fileID: 637208445}
 --- !u!1 &502955948
 GameObject:
   m_ObjectHideFlags: 0
