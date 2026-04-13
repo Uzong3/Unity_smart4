@@ -5,6 +5,8 @@ using UnityEngine;
 public class Cube : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
+    [SerializeField] Animator anicon;
+
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -12,28 +14,23 @@ public class Cube : MonoBehaviour
 
     void Update()
     {
-        Vector3 moveDirection = Vector3.zero;
+        // 입력
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
+        Vector3 moveDirection = new Vector3(moveX, 0, moveZ).normalized;
 
-        if (Input.GetKey(KeyCode.A))
+        // 이동
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+
+        // 회전
+        if (moveDirection != Vector3.zero)
         {
-            moveDirection += new Vector3(-1, 0, 0);
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 20f);
         }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveDirection += new Vector3(1, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            moveDirection += new Vector3(0, 0, 1);
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDirection += new Vector3(0, 0, -1);
-        }
-
-        transform.position += moveDirection.normalized * moveSpeed * Time.deltaTime;
+        // 애니메이터
+        bool isWalk = 0 < moveDirection.magnitude;
+        anicon.SetBool("isWalk", isWalk);
     }
 }
